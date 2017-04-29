@@ -9,20 +9,20 @@ console.log("HAP-NodeJS starting...");
 storage.initSync();
 
 // Start by creating our Bridge which will host all loaded Accessories
-var cameraAccessory = new Accessory('Node Camera', uuid.generate("Node Camera"));
+var cameraAccessory = new Accessory('Camera', uuid.generate("Study Room Camera"));
 
 var cameraSource = new Camera();
 
 cameraAccessory.configureCameraSource(cameraSource);
 
 cameraAccessory.on('identify', function(paired, callback) {
-  console.log("Node Camera identify");
+  console.log("Study Room Camera identify");
   callback(); // success
 });
 
 // Publish the camera on the local network.
 cameraAccessory.publish({
-  username: "EC:22:3D:D3:CE:CE",
+  username: "AC:EF:3E:DD:32:12",
   port: 51062,
   pincode: "031-45-154",
   category: Accessory.Categories.CAMERA
